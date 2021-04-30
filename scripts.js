@@ -11,16 +11,16 @@ function game() {
 
   for (let i = 0; playerWins != 5 && computerWins != 5; i++) {
     
-    let player = playerPlay();
-    let computer = computerPlay();
+    const playerSelection = playerPlay();
+    const computerSelection = computerPlay();
     
-    if(player == null) return;
+    if(playerSelection == null) return;
 
-    console.log(`Round ${i + 1}: ${playRound(player,computer)}`);
+    console.log(`Round ${i + 1}: ${playRound(playerSelection,computerSelection)}`);
 
-    if (isRoundDraw (player, computer)) ++numberDraws;    
-    if (isRoundPlayerWins (player, computer)) ++playerWins;    
-    if (isRoundComputerWins (player, computer)) ++computerWins;
+    if (isRoundDraw (playerSelection, computerSelection)) ++numberDraws;    
+    if (isRoundPlayerWins (playerSelection, computerSelection)) ++playerWins;    
+    if (isRoundComputerWins (playerSelection, computerSelection)) ++computerWins;
 
     console.log(`Player Score: ${playerWins}\nComputer score: ${computerWins}\nDraw: ${numberDraws}`);
   }
@@ -28,6 +28,39 @@ function game() {
   (playerWins > computerWins) ? console.log(`Game Result : Player Wins!`) : console.log(`Game Result : Computer Wins!`);
 }
 
+function playerPlay() {
+  let action = prompt("Please choose your move. (rock, paper, scissors)");
+
+  if(action == null) return;
+  
+  while(!isPlayerActionValid(action)) {
+    action = prompt("Wrong move! Choose your move. (rock, paper, scissors)");
+  }
+ 
+  if (isPlayerActionValid(action)) return convertToLowerCase(action);
+}
+
+function isPlayerActionValid(action) {
+  let playerAction = convertToLowerCase(action);
+
+  for(let i = 0; i < GAME_MOVES.length; i++) {
+    if (playerAction === GAME_MOVES[i]) return true;
+  }
+
+  return false;
+}
+
+function convertToLowerCase(word) {
+  return word.toLowerCase();
+}
+
+function computerPlay() {
+  return GAME_MOVES[generateRandomAction()];
+}
+
+function generateRandomAction() {
+  return Math.floor(Math.random() * GAME_MOVES.length);
+}
 
 function playRound(playerSelection, computerSelection) {
   if (isRoundDraw (playerSelection, computerSelection)) return 'Draw';
@@ -55,44 +88,4 @@ function loseConditions(action) {
   if (action == 0) return 2;
   if (action == 1) return 0;
   if (action == 2) return 1;
-}
-
-function playerPlay() {
-  let playerAction = inputAction();
-
-  return playerAction;
-}
-
-function inputAction() {
-  let action = prompt("Please choose your move. (rock, paper, scissors)");
-
-  if(action == null) return;
-  
-  while(!isPlayerActionValid(action)) {
-    action = prompt("Wrong move! Choose your move. (rock, paper, scissors)");
-  }
- 
-  return isPlayerActionValid(action) ? convertToLowerCase(action) : console.error("ERROR");
-}
-
-function isPlayerActionValid(action) {
-  let playerAction = convertToLowerCase(action);
-
-  for(let i = 0; i < GAME_MOVES.length; i++) {
-    if (playerAction === GAME_MOVES[i]) return true;
-  }
-
-  return false;
-}
-
-function convertToLowerCase(word) {
-  return word.toLowerCase();
-}
-
-function computerPlay() {
-  return GAME_MOVES[generateRandomAction()];
-}
-
-function generateRandomAction() {
-  return Math.floor(Math.random() * GAME_MOVES.length);
 }
