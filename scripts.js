@@ -1,5 +1,6 @@
+// TODO: make an exeplaination
 // Create a set for "Rock paper, scissors" actions
-const GAME_MOVES = ['rock', 'paper', 'scissors'];
+const GAME_MOVES = ["rock", "paper", "scissors"];
 
 // Executes the program
 game();
@@ -10,40 +11,45 @@ function game() {
   let numberDraws = 0;
 
   for (let i = 0; playerWins != 5 && computerWins != 5; i++) {
-    
     const playerSelection = playerPlay();
     const computerSelection = computerPlay();
-    
-    if(playerSelection == null) return;
 
-    console.log(`Round ${i + 1}: ${playRound(playerSelection,computerSelection)}`);
+    if (playerSelection == null) return;
 
-    if (isRoundDraw (playerSelection, computerSelection)) ++numberDraws;    
-    if (isRoundPlayerWins (playerSelection, computerSelection)) ++playerWins;    
-    if (isRoundComputerWins (playerSelection, computerSelection)) ++computerWins;
+    console.log(
+      `Round ${i + 1}: ${playRound(playerSelection, computerSelection)}`
+    );
 
-    console.log(`Player Score: ${playerWins}\nComputer score: ${computerWins}\nDraw: ${numberDraws}`);
+    if (isRoundDraw(playerSelection, computerSelection)) ++numberDraws;
+    if (isRoundPlayerWins(playerSelection, computerSelection)) ++playerWins;
+    if (isRoundComputerWins(playerSelection, computerSelection)) ++computerWins;
+
+    console.log(
+      `Player Score: ${playerWins}\nComputer score: ${computerWins}\nDraw: ${numberDraws}`
+    );
   }
-  
-  (playerWins > computerWins) ? console.log(`Game Result : Player Wins!`) : console.log(`Game Result : Computer Wins!`);
+
+  playerWins > computerWins
+    ? console.log(`Game Result : Player Wins!`)
+    : console.log(`Game Result : Computer Wins!`);
 }
 
 function playerPlay() {
   let action = prompt("Please choose your move. (rock, paper, scissors)");
 
-  if(action == null) return;
-  
-  while(!isPlayerActionValid(action)) {
+  if (action == null) return;
+
+  while (!isPlayerActionValid(action)) {
     action = prompt("Wrong move! Choose your move. (rock, paper, scissors)");
   }
- 
+
   if (isPlayerActionValid(action)) return convertToLowerCase(action);
 }
 
 function isPlayerActionValid(action) {
   let playerAction = convertToLowerCase(action);
 
-  for(let i = 0; i < GAME_MOVES.length; i++) {
+  for (let i = 0; i < GAME_MOVES.length; i++) {
     if (playerAction === GAME_MOVES[i]) return true;
   }
 
@@ -63,24 +69,34 @@ function generateRandomAction() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  if (isRoundDraw (playerSelection, computerSelection)) return 'Draw';
-  if (isRoundPlayerWins (playerSelection, computerSelection)) return `Player Wins! ${playerSelection} beats ${computerSelection}`;
-  if (isRoundComputerWins (playerSelection, computerSelection)) return `Computer Wins! ${playerSelection} beats ${computerSelection}`;
+  if (isRoundDraw(playerSelection, computerSelection)) return "Draw";
+  if (isRoundPlayerWins(playerSelection, computerSelection))
+    return `Player Wins! ${playerSelection} beats ${computerSelection}`;
+  if (isRoundComputerWins(playerSelection, computerSelection))
+    return `Computer Wins! ${playerSelection} beats ${computerSelection}`;
 }
 
-function isRoundDraw (playerSelection, computerSelection) {
+function isRoundDraw(playerSelection, computerSelection) {
   return playerSelection === computerSelection;
 }
 
-function isRoundPlayerWins (playerSelection, computerSelection) {
+function isRoundPlayerWins(playerSelection, computerSelection) {
   for (let i = 0; i < GAME_MOVES.length; i++) {
-    if(playerSelection === GAME_MOVES[i] && computerSelection === GAME_MOVES[loseConditions(i)]) return true; 
+    if (
+      playerSelection === GAME_MOVES[i] &&
+      computerSelection === GAME_MOVES[loseConditions(i)]
+    )
+      return true;
   }
 }
 
-function isRoundComputerWins (playerSelection, computerSelection) {
+function isRoundComputerWins(playerSelection, computerSelection) {
   for (let i = 0; i < GAME_MOVES.length; i++) {
-    if(computerSelection === GAME_MOVES[i] && playerSelection === GAME_MOVES[loseConditions(i)]) return true; 
+    if (
+      computerSelection === GAME_MOVES[i] &&
+      playerSelection === GAME_MOVES[loseConditions(i)]
+    )
+      return true;
   }
 }
 
