@@ -1,8 +1,8 @@
 // TODO: make an exeplaination
-// Create a set for "Rock paper, scissors" actions
+// Create an array for "Rock, paper, scissors" action
 const GAME_MOVES = ["rock", "paper", "scissors"];
 
-// Executes the program
+// Executes game
 game();
 
 function game() {
@@ -24,14 +24,10 @@ function game() {
     if (isRoundPlayerWins(playerSelection, computerSelection)) ++playerWins;
     if (isRoundComputerWins(playerSelection, computerSelection)) ++computerWins;
 
-    console.log(
-      `Player Score: ${playerWins}\nComputer score: ${computerWins}\nDraw: ${numberDraws}`
-    );
+    console.log(displayScore(playerWins, computerWins, numberDraws));
   }
 
-  playerWins > computerWins
-    ? console.log(`Game Result : Player Wins!`)
-    : console.log(`Game Result : Computer Wins!`);
+  console.log(displayWinner(playerWins, computerWins));
 }
 
 function playerPlay() {
@@ -104,4 +100,16 @@ function loseConditions(action) {
   if (action == 0) return 2;
   if (action == 1) return 0;
   if (action == 2) return 1;
+}
+
+function displayScore(playerWin, computerWin, draw) {
+  return `Player Score: ${playerWin}\nComputer score: ${computerWin}\nDraw: ${draw}`;
+}
+
+function displayWinner(playerScore, computerScore) {
+  let result;
+  playerScore > computerScore
+    ? (result = `Game Result : Player Wins!`)
+    : (result = `Game Result : Computer Wins!`);
+  return result;
 }
