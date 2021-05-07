@@ -1,0 +1,86 @@
+:root {
+  --color-primary: #1c110a;
+  --color-secondary: #fcfcfc;
+  --color-tertiary: #61e8e1;
+  --color-quarternary: #fcff6c;
+  --color-quinary: #f36;
+  --color-player-action: #0e171f;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Inter", Arial;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+img {
+  display: block;
+}
+
+h2 {
+  font-size: 2.75rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+#header {
+  padding: 2em 1.5em;
+  text-align: center;
+}
+
+#header .header-title {
+  font-size: 5rem;
+  font-weight: 100;
+}
+
+#main .main-actions {
+  padding: 1em 0;
+}
+
+#main .action-title {
+  margin-bottom: 2.5rem;
+}
+
+#main .main-actions .actions {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+#main .main-actions .actions .action {
+  padding: 0.5em;
+  border: 2px solid var(--color-secondary);
+  border-radius: 50%;
+  transition: all 0.05s ease-in-out;
+}
+
+#main .main-actions .actions .action:not(:last-of-type) {
+  margin-right: 4rem;
+}
+
+#main .main-actions .actions .action .action-icon {
+  height: 45px;
+  width: 45px;
+}
+
+.player-action {
+  background-color: var(--color-player-action);
+  border-color: var(--color-tertiary);
+}
