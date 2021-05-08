@@ -4,7 +4,11 @@
   --color-tertiary: #61e8e1;
   --color-quarternary: #fcff6c;
   --color-quinary: #f36;
-  --color-player-action: #0e171f;
+
+  --color-player-choice: #0e171f;
+  --color-draw: #28465f;
+  --color-win: #72a345;
+  --color-lose: #a32142;
 }
 
 *,
@@ -40,9 +44,16 @@ h2 {
   text-align: center;
 }
 
-#header {
-  padding: 2em 1.5em;
+h3 {
+  font-size: 1.8rem;
+  font-weight: normal;
   text-align: center;
+}
+
+#header {
+  padding: 1em 1.5em;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 #header .header-title {
@@ -50,37 +61,127 @@ h2 {
   font-weight: 100;
 }
 
-#main .main-actions {
+#main .main-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 0;
+  margin-bottom: 1rem;
+}
+
+#main .main-result .result-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  border: 1px solid var(--color-secondary);
+  position: relative;
+}
+
+#main .main-result .result-actions .round {
+  position: absolute;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 1.7rem;
+  z-index: 2;
+}
+
+#main .main-result .result-actions .player-action,
+#main .main-result .result-actions .computer-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12rem 10rem;
+  position: relative;
+}
+
+#main .main-result .result-actions .player-action .player-desc,
+#main .main-result .result-actions .computer-action .computer-desc {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 1rem;
+  padding: 0.2rem 0.5rem;
+}
+
+#main .main-result .result-actions .player-action .player-desc {
+  left: -0.5%;
+}
+
+#main .main-result .result-actions .computer-action .computer-desc {
+  right: -0.5%;
+}
+
+#main .main-result .result-actions .player-action .player-score,
+#main .main-result .result-actions .computer-action .computer-score {
+  display: block;
+  position: absolute;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 3rem;
+  padding: 0.5rem 1rem;
+}
+
+#main .main-result .result-actions .player-action .player-score {
+  left: -10%;
+}
+
+#main .main-result .result-actions .computer-action .computer-score {
+  right: -10%;
+}
+#main .main-result .result-actions .player-action-icon,
+#main .main-result .result-actions .computer-action-icon {
+  display: block;
+  position: absolute;
+  width: 75px;
+  visibility: hidden;
+}
+
+#main .main-result .result-actions .player-action-icon {
+  transform: rotate(90deg);
+}
+
+#main .main-result .result-actions .computer-action-icon {
+  transform: scaleX(-1) rotate(90deg);
+}
+
+#main .main-choices {
   padding: 1em 0;
 }
 
-#main .action-title {
-  margin-bottom: 2.5rem;
+#main .choices-title {
+  margin-bottom: 2rem;
 }
 
-#main .main-actions .actions {
+#main .main-choices .choices {
   list-style: none;
   display: flex;
   justify-content: center;
 }
 
-#main .main-actions .actions .action {
+#main .main-choices .choices .choice {
   padding: 0.5em;
   border: 2px solid var(--color-secondary);
   border-radius: 50%;
-  transition: all 0.05s ease-in-out;
+  transition: all 0.09s ease-in-out;
+  cursor: pointer;
 }
 
-#main .main-actions .actions .action:not(:last-of-type) {
+#main .main-choices .choices .choice:not(:last-of-type) {
   margin-right: 4rem;
 }
 
-#main .main-actions .actions .action .action-icon {
+#main .main-choices .choices .choice .choice-icon {
   height: 45px;
   width: 45px;
 }
 
-.player-action {
-  background-color: var(--color-player-action);
+.player-choice {
+  background-color: var(--color-player-choice);
   border-color: var(--color-tertiary);
 }
