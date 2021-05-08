@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <title>The Odin Project: Rock, paper, scissors</title>
+  <title>Rock, paper, scissors</title>
 </head>
 <body>
   <header id="header">
@@ -16,15 +16,37 @@
   </header>
 
   <main id="main">
-    <section class="main-actions">
-      <h2 class="action-title">Choose your move!</h2>
-      <ul class="actions">
-        <li class="action" value="rock"><img class="action-icon" src="icons/rock.svg" alt="action rock"></li>
-        <li class="action" value="paper"><img class="action-icon" src="icons/paper.svg" alt="action paper.svg"></li>
-        <li class="action" value="scissors"><img class="action-icon" src="icons/scissors.svg" alt="action scissors.svg"></li>
+    <section class="main-result">
+      <div class="result-actions">
+        <p class="round"></p>
+        <figure class="player-action">
+          <figcaption class="player-desc">You</figcaption>
+          <figcaption class="player-score">0</figcaption>
+          <img data-action="rock" class="player-action-icon" src="icons/rock.svg" alt="action rock">
+          <img data-action="paper"  class="player-action-icon" src="icons/paper.svg" alt="action paper">
+          <img data-action="scissors"  class="player-action-icon" src="icons/scissors.svg" alt="action scissors">
+        </figure>
+        <figure class="computer-action">
+          <figcaption class="computer-desc">Computer</figcaption>
+          <figcaption class="computer-score">0</figcaption>
+          <img data-action="rock"  class="computer-action-icon" src="icons/rock.svg" alt="action rock">
+          <img data-action="paper"  class="computer-action-icon" src="icons/paper.svg" alt="action paper">
+          <img data-action="scissors"  class="computer-action-icon" src="icons/scissors.svg" alt="action scissors">
+        </figure>
+      </div>
+      <h3 class="result-desc"></h3>
+    </section>
+    
+    <section class="main-choices">
+      <h2 class="choices-title">Choose your move!</h2>
+      <ul class="choices">
+        <li data-choice="rock" class="choice"><img class="choice-icon" src="icons/rock.svg" alt="choice rock"></li>
+        <li data-choice="paper" class="choice"><img class="choice-icon" src="icons/paper.svg" alt="choice paper.svg"></li>
+        <li data-choice="scissors" class="choice"><img class="choice-icon" src="icons/scissors.svg" alt="choice scissors.svg"></li>
       </ul>
     </section>
   </main>
-  <script src="scripts.js"></script>
+  <!-- <script src="scripts.js"></script> -->
+  <script src="main.js"></script>
 </body>
 </html>
