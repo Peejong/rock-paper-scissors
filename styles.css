@@ -286,3 +286,108 @@ a {
   background-color: var(--color-tertiary-dark);
   border-color: var(--color-tertiary);
 }
+
+@media only screen and (max-width: 38.125em) {
+  body {
+    font-size: 1.5rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  button,
+  a {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 31.25em) {
+  body {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  #header {
+    padding: 6em 1.5em;
+    margin-bottom: 2rem;
+  }
+
+  #main .main-game .round-result .result-actions .player-action,
+  #main .main-game .round-result .result-actions .computer-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 6rem;
+    position: relative;
+  }
+
+  #main
+    .main-game
+    .round-result
+    .result-actions
+    .player-action
+    .player-action-icon,
+  #main
+    .main-game
+    .round-result
+    .result-actions
+    .computer-action
+    .computer-action-icon {
+    width: 70px;
+  }
+
+  #main .main-game .action-choices .choices .choice .choice-icon {
+    height: 40px;
+    width: 40px;
+  }
+
+  #main .main-end .end-content .end-desc {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 26.25em) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  #main .main-game .round-result {
+    margin-bottom: 5rem;
+  }
+
+  #main .main-game .round-result .result-actions .player-action,
+  #main .main-game .round-result .result-actions .computer-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 4rem;
+    position: relative;
+  }
+
+  #main
+    .main-game
+    .round-result
+    .result-actions
+    .player-action
+    .player-action-icon,
+  #main
+    .main-game
+    .round-result
+    .result-actions
+    .computer-action
+    .computer-action-icon {
+    width: 50px;
+  }
+}
