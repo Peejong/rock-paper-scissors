@@ -4,14 +4,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="Simple rock paper and scissors webpage game">
+  <meta name="keywords" content="rock, paper, scissors, game, rock paper scissors game">
+  <meta name="author" content="Peejong">
+  <title>Rock Paper and Scissors</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <title>Rock, paper, and scissors</title>
 </head>
 <body>
-  <header id="header" class="fadeOut">
+  <header id="header" class="hidden">
     <h1 class="header-title">Rock Paper and Scissors</h1>
   </header>
 
@@ -24,7 +26,7 @@
       </div>
     </section>
 
-    <section class="main-game fadeOut">
+    <section class="main-game hidden">
       <div class="round-result">
         <div class="result-actions">
           <p class="round"></p>
@@ -41,7 +43,7 @@
         </div>
         <h3 class="result-desc"></h3>
       </div>
-      
+
       <div class="action-choices">
         <h2 class="choices-title">Choose your move!</h2>
         <ul class="choices">
@@ -52,14 +54,13 @@
       </div>
     </section>
 
-    <section class="main-end fadeOut">
+    <section class="main-end hidden">
       <div class="end-content">
         <p class="end-desc"></p>
-        <a href="#" class="end-btn">Play Again</a>
+        <button class="end-btn">Play Again</button>
       </div>
       </section>
   </main>
-  <!-- <script src="scripts.js"></script> -->
   <script src="main.js"></script>
 </body>
 </html>

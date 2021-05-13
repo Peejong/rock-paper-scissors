@@ -31,10 +31,7 @@ body {
   color: var(--color-secondary);
 }
 
-img {
-  display: block;
-}
-
+/* @heading */
 h1,
 h2,
 h3 {
@@ -56,8 +53,13 @@ h3 {
   font-weight: 400;
 }
 
-button,
-a {
+/* @image */
+img {
+  display: block;
+}
+
+/* @button */
+button {
   outline: 0;
   text-decoration: none;
   border: 0;
@@ -70,12 +72,14 @@ a {
   cursor: pointer;
 }
 
+/* @header */
 #header {
   padding: 1em 1.5em;
   margin-bottom: 1rem;
   transition: opacity 0.5s ease;
 }
 
+/* @main */
 #main {
   position: relative;
 }
@@ -88,6 +92,7 @@ a {
   text-align: center;
 }
 
+/* @section main-start */
 #main .main-start {
   transition: opacity 0.5s ease;
 }
@@ -96,6 +101,7 @@ a {
   margin-bottom: 2.5rem;
 }
 
+/* @section main-game */
 #main .main-game {
   position: absolute;
   top: 0;
@@ -104,6 +110,7 @@ a {
   transition: opacity 1s ease;
 }
 
+/* @section main-game > round-result */
 #main .main-game .round-result {
   display: flex;
   flex-direction: column;
@@ -222,6 +229,7 @@ a {
   transform: scaleX(-1) rotate(90deg);
 }
 
+/* @section main-game > action-choices */
 #main .main-game .action-choices {
   padding: 1em 0;
 }
@@ -253,6 +261,7 @@ a {
   width: 45px;
 }
 
+/* @section main-end */
 #main .main-end {
   position: absolute;
   top: 50%;
@@ -270,16 +279,10 @@ a {
   font-size: 1.3rem;
 }
 
-/* JavaScript class */
-
-.fadeOut {
+/* @javascript class */
+.hidden {
   opacity: 0;
   pointer-events: none;
-}
-
-.fadeIn {
-  opacity: 1;
-  pointer-events: all;
 }
 
 .player-choice {
@@ -287,6 +290,7 @@ a {
   border-color: var(--color-tertiary);
 }
 
+/* @media queries */
 @media only screen and (max-width: 38.125em) {
   body {
     font-size: 1.5rem;
