@@ -8,3 +8,5 @@ This project implements the classic game "rock paper scissors". The user will co
 
 
 [Live demo](https://peejong.github.io/rock-paper-scissors/)
+
+>Might comeback for improving the design 
